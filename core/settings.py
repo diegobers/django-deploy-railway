@@ -15,8 +15,6 @@ LOGIN_REDIRECT_URL = 'base'
 
 CSRF_TRUSTED_ORIGINS = ['https://django-deploy-railway-production.up.railway.app']
 
-CSRF_ALLOWED_ORIGINS = ['https://django-deploy-railway-production.up.railway.app']
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -86,7 +84,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
