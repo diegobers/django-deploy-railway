@@ -13,7 +13,9 @@ AUTH_USER_MODEL = 'accounts.MyUserModel'
 
 LOGIN_REDIRECT_URL = 'base'
 
-CSRF_TRUSTED_ORIGINS = ['https://django-deploy-railway-production.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://django-deploy-railway-production.up.railway.app']
+
+CSRF_ALLOWED_ORIGINS = ['https://django-deploy-railway-production.up.railway.app']
 
 # Application definition
 INSTALLED_APPS = [
