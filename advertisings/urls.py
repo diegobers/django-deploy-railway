@@ -1,12 +1,8 @@
 from django.urls import path
 
-#from .views import IndexAdvertisingView
-
-app_name = 'advertisings'
+from .views import AdvertisingDetailView
 
 
-urlpatterns = [
-    #path("", IndexAdvertisingView.as_view(), name="index"),
-    #path('', TemplateView.as_view(template_name='base.html'), name='home'),
-
+urlpatterns = [    
+  path('detalhe/<int:pk>/', AdvertisingDetailView.as_view(), name='advertising'),
 ]

@@ -1,8 +1,6 @@
 {% extends 'base.html' %} 
 
-
 {% block content %}
-
 <div class='container'> 
   <div class='row'>  
     {% for advertising in advertisings %}
@@ -11,11 +9,13 @@
         <img src="{{advertising.photo_main.url}}" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title">{{advertising.description}}</h5>
+          <p class="card-text">
+            <a href="{% url 'advertising' advertising.id %}" class="stretched-link"></a>
+          </p>
         </div>
       </div>  
      </div>
     {% endfor %}       
   </div> 
 </div>
-
 {% endblock %}
