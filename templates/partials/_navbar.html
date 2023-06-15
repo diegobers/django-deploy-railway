@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand" href="{% url 'index' %}">
-      <img src="{% static 'img/logo.png' %}" alt="Logo" width="60" height="50" class="">ViVa Real-Estate
+      <img src="{% static 'img/logo.png' %}" alt="Logo" width="60" height="50" class="">ViVa
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,13 +10,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">
-            {{request.user}}
-          </a>
+          <a class="nav-link active" aria-current="page" href="{% url 'advertisings' %}">Anúncios</a>
         </li>
         {% if request.user.is_authenticated %}         
           <li class='nav-item'>
-            <a href="{% url 'sair' %}" class='nav-link lead mr-4 font-weight-bold'>Sair</a>
+            <a href="{% url 'logout' %}" class='nav-link lead mr-4 font-weight-bold'>Sair - {{request.user}}</a>
           </li>  
         {% else %}
           <li class="nav-item">

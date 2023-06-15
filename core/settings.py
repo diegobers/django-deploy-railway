@@ -13,6 +13,8 @@ AUTH_USER_MODEL = 'accounts.MyUserModel'
 
 LOGIN_REDIRECT_URL = 'index'
 
+LOGIN_URL = 'login'
+
 CSRF_TRUSTED_ORIGINS = ['https://django-deploy-railway-production.up.railway.app']
 
 CORS_ORIGINS_WHITELIST = ['https://django-deploy-railway-production.up.railway.app']
@@ -95,6 +97,7 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
+USE_THOUSAND_SEPARATOR = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'

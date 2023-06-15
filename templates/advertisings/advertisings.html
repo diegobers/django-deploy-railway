@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+
+
+{% block content %}
+<!-- Ads Section -->
+<section id="advertisings" class="py-4">
+  <div class="container mx-auto">
+    <div class="row">
+      {% if advertisings %}
+	 	    <div class='my-4 mx-auto col-sm col-md col-lg col-xl'>
+		      <div class='card card-body my-5 w-75 mx-auto shadow'> 
+		        <h4 class='font-weight-bold text-center font-italic'>Admin - Lista Anúncios</h4>    
+		        <hr>
+		        <div class="table-responsive"> 
+		          <table class='table table-sm table-md table-lg table-xl'> 
+		            <thead>
+		              <tr>
+		                <th>Descrição</th>
+		              </tr> 
+		            </thead>  
+          			<tbody>
+      						{% for adv in advertisings %}
+            				<tr>
+			                <td>
+			                	<a href="{% url 'advertising' adv.id %}">{{adv.description}}</a>
+			                </td> 
+			                <td>
+			                	<a class='btn btn-secondary mx-auto w-25' href="{% url 'update-advertising' adv.id %}">Alterar</a>
+			                </td>
+						        </tr>
+      						{% endfor %}
+          			</tbody>
+        			</table> 
+      			</div>  
+					</div> 
+    		</div>    
+	    {% else %}
+	      <div class="col-md-12">
+	        <p>Sem Anúncios!!!</p>
+	      </div>
+	    {% endif %}
+	    <hr>
+        <a class='btn btn-secondary mx-auto w-25' href="{% url 'create-advertising' %}">Novo</a>
+	  </div>
+	</div>
+</section>
+{% endblock %}
