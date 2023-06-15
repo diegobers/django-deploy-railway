@@ -11,7 +11,7 @@ ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'accounts.MyUserModel'
 
-LOGIN_REDIRECT_URL = 'base'
+LOGIN_REDIRECT_URL = 'index'
 
 CSRF_TRUSTED_ORIGINS = ['https://django-deploy-railway-production.up.railway.app']
 
@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'storages',
+    'pages',
 ]
 
 MIDDLEWARE = [
