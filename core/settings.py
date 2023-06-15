@@ -15,6 +15,8 @@ LOGIN_REDIRECT_URL = 'base'
 
 CSRF_TRUSTED_ORIGINS = ['https://django-deploy-railway-production.up.railway.app']
 
+CORS_ORIGINS_WHITELIST = ['https://django-deploy-railway-production.up.railway.app']
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -24,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -96,5 +99,17 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# AWS S3 Bucket with Boto3 and django-storages
+AWS_ACCESS_KEY_ID = 'AKIA3COXWJFX6YQFBPRS'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'aws-s3djangoapps'
+
+#AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
