@@ -27,6 +27,9 @@
 			                <td>
 			                	<a class='btn btn-secondary' href="{% url 'update-advertising' adv.id %}">Alterar</a>
 			                </td>
+			                <td>
+			                	<a class='btn btn-secondary' href="{% url 'delete-advertising' adv.id %}">Deletar</a>
+			                </td>
 						        </tr>
       						{% endfor %}
           			</tbody>

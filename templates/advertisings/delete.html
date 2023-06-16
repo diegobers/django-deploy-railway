@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class='container mx-auto'> 
+  <div class='row'>
+    <div class='mx-auto col-sm col-md col-lg col-xl'>
+      <div class='card card-body my-5 w-75 mx-auto shadow'>  
+        <form method='POST' action=''>
+          {% csrf_token %}   
+          <div class='text-center'>
+            <button class='btn btn-danger' type='submit'>Deletar</button>
+          </div>
+        </form>  
+      </div>
+    </div>
+  </div>  
+</div>   
+{% endblock %}

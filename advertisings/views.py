@@ -33,3 +33,9 @@ class AdvertisingCreateView(LoginRequiredMixin, CreateView):
     fields = ['photo_main', 'description']
     success_url = reverse_lazy('advertisings')
 
+
+class AdvertisingDeleteView(LoginRequiredMixin, DeleteView):
+    model = Advertising
+    template_name = 'advertisings/delete.html'
+    context_object_name = 'advertising'
+    success_url = reverse_lazy('advertisings')
