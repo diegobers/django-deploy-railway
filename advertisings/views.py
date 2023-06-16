@@ -32,8 +32,3 @@ class AdvertisingCreateView(LoginRequiredMixin, CreateView):
     context_object_name = 'advertising'
     fields = '__all__'
     success_url = reverse_lazy('advertisings')
-
-    def form_valid(self, form):
-        form.instance.photo_main = self.request.FILES
-        
-        return super(AdvertisingCreateView, self).form_valid(form)
