@@ -30,5 +30,6 @@ class AdvertisingCreateView(LoginRequiredMixin, CreateView):
     model = Advertising
     template_name = 'advertisings/create.html'
     context_object_name = 'advertising'
-    fields = '__all__'
+    fields = ['photo_main', 'description']
     success_url = reverse_lazy('advertisings')
+
