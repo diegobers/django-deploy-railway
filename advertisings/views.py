@@ -39,3 +39,20 @@ class AdvertisingDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'advertisings/delete.html'
     context_object_name = 'advertising'
     success_url = reverse_lazy('advertisings')
+
+
+def AdvertisingSearchView(request):
+  queryset_list = Advertising.objects.order_by('-list_date')
+
+  # Keywords
+  if 'keywords' in request.GET:
+    keywords = request.GET['keywords']
+    if keywords:
+      queryset_list = queryset_list.filter(description__icontains=keywords)
+
+  context = {
+    'products': queryset_list,
+    'values': request.GET
+  }
+
+  return render(request, 'advertisings/search.html', context)

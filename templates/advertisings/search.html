@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fa-solid fa-house"></i> Início
+            </a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'advertisings' %}"> Pesquisar Produtos</a>
+          </li>
+          <li class="breadcrumb-item active"> Resultado Pesquisa</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Advertisings List -->
+  <section id="advertisings" class="py-4">
+    <div class="container">
+      <div class="row">
+        {% if advertisings %}
+          {% for advertising in advertisings %}
+          <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card #-preview">
+                <img class="card-img-top" src="{{ advertising.photo_main.url }}" alt="">
+                <div class="card-body">
+                  <div class="#-heading text-center">
+                    <h4 class="text-primary">{{ advertising.title }}</h4>
+                    <p>
+                      <i class="fas fa-map-marker text-secondary"></i>{{ advertising.description }} 
+                    </p>
+                    <p>
+                      <i class="fas fa-map-marker text-secondary"></i>{{ advertising.price }} 
+                    </p>
+                  </div>
+                  <hr>
+
+                  <a href="{% url 'advertising' advertising.id %}" class="btn btn-primary">Detalhes</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+            <p>Sem Produtos</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
