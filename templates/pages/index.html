@@ -2,6 +2,50 @@
 
 
 {% block content %}
+
+<!-- Showcase -->
+<section id="showcase">
+  <div class="container text-center">
+    <div class="home-search p-5">
+      <div class="overlay p-5">
+        <h1 class="display-4 mb-4">Pesquisar Imóvel</h1>
+        <p class="lead">Pow pow Tey tey!</p>
+        <div class="search">
+          <form action="{% url 'search' %}">
+            <!-- Form Row 1 -->
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Descrição</label>
+                <input type="text" name="keywords" class="form-control"  value="{{ values.keywords }}" placeholder="Descrição...">
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <select name="final_price" class="form-control" id="type">
+                  <option selected="true" disabled="disabled">Preço</option>
+                  {% for key,value in price_choices.items %}
+                    <option value="{{ key }}">{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">State</label>
+                <select name="state" class="form-control">
+                  <option selected="true" disabled="disabled">Estado</option>
+                  {% for key,value in state_choices.items %}
+                    <option value="{{ key }}">{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-block mt-4" type="submit">Pesquisar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
 <!-- Latest Advertisings -->
 <section id="advertisings" class="py-5">
   <div class="container">
@@ -51,7 +95,6 @@
     </div>
   </div>
 </section>
-
 <!-- Services -->
 <section id="services" class="py-5 text-primary">
   <div class="container">

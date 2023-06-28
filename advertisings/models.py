@@ -9,7 +9,7 @@ class Advertising(models.Model):
   adv_type = models.TextField(null=True, blank=True)
   adv_cod = models.IntegerField(null=True, blank=True)
   initial_price = models.DecimalField(null=True, blank=True, max_digits=2, decimal_places=1)
-  final_price = models.DecimalField(null=True, blank=True, max_digits=2, decimal_places=1)
+  final_price = models.IntegerField()
   is_published = models.BooleanField(null=True, default=True, blank=True)
   is_occupied = models.BooleanField(null=True, default=True, blank=True)
   list_date = models.DateField(null=True, default=datetime.today, blank=True)
