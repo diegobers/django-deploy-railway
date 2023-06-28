@@ -1,21 +1,77 @@
 {% extends 'base.html' %} 
 
+
 {% block content %}
-<div class='container'> 
-  <div class='row'>  
-    {% for advertising in advertisings %}
-     <div class='col-sm-4 col-md-4 col-lg-4 col-xl-4 my-2'> 
-      <div class="card w-100 mx-auto shadow" href="#" style="width: 8rem; height: 14rem;">
-        <img src="{{advertising.photo_main.url}}" style="height: 10rem;" class="card-img-top" alt="...">
-        <div class="card-body text-center">
-          <h5 class="card-title">{{advertising.description}}</h5>
-          <p class="card-text">
-            <a href="{% url 'advertising' advertising.id %}" class="stretched-link"></a>
-          </p>
+<!-- Latest Advertisings -->
+<section id="advertisings" class="py-5">
+  <div class="container">
+    <h3 class="text-center mb-3">Últimas Ofertas</h3>
+    <div class="row">
+      {% if advertisings %}
+        {% for advertising in advertisings %}
+          <!-- Listing 1 -->
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card">
+              <img class="card-img-top" src="{{advertising.photo_main.url}}">
+              <div class="card-img-overlay">
+                <h2>
+                  <span class="badge badge-secondary text-white">R$:{{advertising.initial_price}}</span>
+                </h2>
+              </div>
+              <div class="card-body">
+                <div class="advertising-heading text-center">
+                  <h4 class="text-primary">{{advertising.title}}</h4>
+                  <p>
+                    <i class="fas fa-map-marker text-secondary"></i> {{advertising.city}} {{advertising.state}}, {{advertising.zipcode}}</p>
+                </div>
+                <hr>
+                <div class="row py-2 text-secondary">
+                  <div class="col-6">
+                    <i class="fas fa-th-large"></i> Área Útil:{{advertising.useful_meters}}m²</div>
+                  <div class="col-6">
+                    <i class="fas fa-car"></i> Garagem:{{advertising.garage}}</div>
+                </div>
+                <div class="row py-2 text-secondary">
+                  <div class="col-6">
+                    <i class="fas fa-bed"></i> Quartos:{{advertising.bedrooms}}</div>
+                  <div class="col-6">
+                    <i class="fas fa-bath"></i> Banheiro:{{advertising.bathrooms}}</div>
+                </div>
+                <hr>
+                <a href="{% url 'advertising' advertising.id %}" class="btn btn-primary stretched-link">Mais Informações</a>
+              </div>
+            </div>
+          </div> 
+        {% endfor %}
+      {% else %}
+        <div class="col-md-12">
+          <p>Sem Ofertas!!!  :(</p>
         </div>
-      </div>  
-     </div>
-    {% endfor %}
-  </div> 
-</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="py-5 text-primary">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <i class="fas fa-comment fa-4x mr-4"></i>
+        <hr>
+        <h3>Serviço1</h3> 
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-home fa-4x mr-4"></i>
+        <hr>
+        <h3>Serviço2</h3> 
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-suitcase fa-4x mr-4"></i>
+        <hr>
+        <h3>Serviço3</h3> 
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

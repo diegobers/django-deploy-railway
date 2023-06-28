@@ -1,27 +1,36 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand sticky-top shadow bg-primary">
   <div class="container">
     <a class="navbar-brand" href="{% url 'index' %}">
-      <img src="{% static 'img/logo.png' %}" alt="Logo" width="60" height="50" class="">ViVa
+      <img src="{% static 'img/logo.png' %}" alt="Logo" width="60" height="50" class="">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    
+    <button class="navbar-toggler" type="button" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      
+      <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'advertisings' %}">Anúncios</a>
+          <a class="nav-link active text-white" href="{% url 'advertisings' %}">Anúncios</a>
         </li>
         {% if request.user.is_authenticated %}         
           <li class='nav-item'>
-            <a href="{% url 'logout' %}" class='nav-link lead mr-4 font-weight-bold'>Sair - {{request.user}}</a>
+            <a href="{% url 'logout' %}" class='nav-link lead mr-4 font-weight-bold text-white'>Sair - {{request.user}}</a>
           </li>  
         {% else %}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Entrar</a>
+            <a class="nav-link active text-white" href="{% url 'login' %}">Entrar</a>
           </li>
         {% endif %}
       </ul>
+        
+      <form class="my-auto" role="search" action="{% url 'search' %}">
+        <input class="form-control border-secondary" name="keywords" type="text" placeholder="Pesquisar..."  value="{{ values.keywords }}">
+      </form>
     </div>
   </div>
 </nav>
